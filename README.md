@@ -26,7 +26,7 @@ echo "REPLICATE_API_KEY=XXXXXX" > .env
 Create videos!
 
 ```sh
-$ python prediction-to-video.py --model laion-ai/erlich --prompt "a logo of a white cat curled up into a ball, sleeping on a blue rug"
+$ python predict.py --model laion-ai/erlich --prompt "a logo of a white cat curled up into a ball, sleeping on a blue rug"
 ```
 
 See [replicate.com/collections/text-to-image](https://replicate.com/collections/text-to-image) for a collection of models that generate images from text prompts.
