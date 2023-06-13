@@ -60,13 +60,19 @@ print('video_path = ' + video_path)
 ffmpeg.input(input_pattern, r=1, f='concat', safe='0').output(video_path, pix_fmt='yuv420p').run() #.overwrite_output().run()
 
 
-in1 = ffmpeg.input(f"{temp_dir}\\1.png", framerate=1)
+in1 = ffmpeg.input(f"{temp_dir}\\1.{extension}", framerate=1)
 v1 = in1.video
 v2 = in1.video.filter('reverse')
-in2 = ffmpeg.input(f"{temp_dir}\\2.png", framerate=1)
+in2 = ffmpeg.input(f"{temp_dir}\\2.{extension}", framerate=1)
 v12 = in2.video
 v22 = in2.video.filter('reverse')
-joined = ffmpeg.concat(v1, v2, v12, v22, v=1).node
+in3 = ffmpeg.input(f"{temp_dir}\\3.{extension}", framerate=1)
+v13 = in3.video
+v23 = in3.video.filter('reverse')
+in4 = ffmpeg.input(f"{temp_dir}\\4.{extension}", framerate=1)
+v14 = in4.video
+v24 = in4.video.filter('reverse')
+joined = ffmpeg.concat(v1, v2, v12, v22, v13, v23, v14, v24, v=1).node
 # create video
 video_path = f"{temp_dir}/output2.mp4"
 print('video_path = ' + video_path)
